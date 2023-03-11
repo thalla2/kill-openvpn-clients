@@ -1,10 +1,7 @@
 Requirements: 
 
 - OpenVPN community edition
-- The 'management' option turned on in server.conf 
-  [root@vpn:/root]$ grep management /etc/openvpn/server/server.conf
-  management 127.0.0.1 7505
-  [root@vpn:/root]$
+- The 'management' value defined on in OpenVPN's server.conf with port 7505
 - nc
 
 Install: 
