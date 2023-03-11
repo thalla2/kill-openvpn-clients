@@ -2,7 +2,7 @@
 
 # Variables
 NOW=`date +%s`
-KILLTIME=60
+KILLTIME=10800 # Kill VPN clients after 3 hours of being connected
 
 # Generate a list of connected employees
 echo 'status' | nc localhost 7505 | grep ^CLIENT_LIST | sed 's/ //g' > /tmp/current-users.vpn
