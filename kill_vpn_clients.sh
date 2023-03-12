@@ -6,6 +6,18 @@ PORT=7505
 KILLTIME=43200
 TMPFILE=/tmp/current-users.vpn
 
+# Test to make sure nc is installed and in a working PATH.
+if ! which nc >/dev/null 2>&1; then
+        echo "Unable to find the 'nc' binary.  Did you install it?"
+        exit
+fi
+
+# Test to make sure the OpenVPN management port is listening first.
+if ! nc -z localhost $PORT; then
+        echo "Unable to reach the OpenVPN management port on $PORT.  Please check you have set the management line in server.conf"
+        exit
+fi
+
 # Generate a list of connected employees
 echo 'status' | nc localhost $PORT | grep ^CLIENT_LIST | sed 's/ //g' > $TMPFILE
 
