@@ -1,3 +1,5 @@
+The OpenVPN server (community edition) doesn't support a "max connected" time.  This simple script will generate a list of users currently connected to the VPN and kill their session automatically once they reach the max connected time.  
+
 Requirements: 
 
 - OpenVPN community edition
